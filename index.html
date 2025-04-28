@@ -1,39 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Desmos Graph</title>
-    <style>
-        html, body, #calculator {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-    </style>
-</head>
-<body>
-    <div id="calculator"></div>
-
+<html>
+  <head>
+    <title>My Graph</title>
     <script src="https://www.desmos.com/api/v1.6/calculator.js?apiKey=YOUR_API_KEY"></script>
+    <style>
+      html, body, #calculator {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="calculator"></div>
     <script>
-        var elt = document.getElementById('calculator');
-        var calculator = Desmos.GraphingCalculator(elt, {
-            expressions: true,
-            settingsMenu: false,
-            zoomButtons: true,
-            lockViewport: false,
-        });
-
-        // Load a saved graph (optional)
-        calculator.setExpression({ id: 'graph1', latex: 'y=ax^2', sliderBounds: { min: -10, max: 10 } });
-        calculator.setMathBounds({
-          left: -10,
-          right: 10,
-          bottom: -10,
-          top: 10
-        });
+      var elt = document.getElementById('calculator');
+      var calculator = Desmos.GraphingCalculator(elt, {
+        expressions: true
+      });
+      calculator.setExpression({ id: 'graph1', latex: 'y=x^2' });
     </script>
-</body>
+  </body>
 </html>
